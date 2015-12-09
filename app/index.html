@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workout Wrangling App</title>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body data-ng-app="WorkoutStreamApp">
+  <h1>Workout Schedule</h1>
+  <main data-ng-controller="WorkoutsController" data-ng-init="getAll()">
+
+    <form name="newWorkoutForm" data-ng-submit="create(newWorkout)">
+      <h2>New Workout:</h2>
+
+      <label for="sport">Sport:</label>
+      <input type="text" id="sport" data-ng-model="newWorkout.sport" required/>
+
+      <label for="distance">Distance:</label>
+      <input type="number" id="distance" data-ng-model="newWorkout.distance"/>
+
+      <label for="units">Units:</label>
+      <input type="text" id="units" data-ng-model="newWorkout.units" placeholder="mi / m / hrs"/>
+
+      <label for="date">Date &amp; Time:</label>
+      <input type="datetime-local" id="date" data-ng-model="newWorkout.date" />
+
+      <label for="comments">Notes:</label>
+      <input type="text" id="comments" data-ng-model="newWorkout.comments" />
+
+      <button type="submit" data-ng-disabled="newWorkoutForm.$invalid">Create New Workout</button>
+    </form>
+    <h2>Workouts:</h2>
+    <ul id="errorsList">
+      <li data-ng-repeat="error in errors">{{error}}</li>
+    </ul>
+    <ul id='workoutlist'>
+      <li ng-repeat="workout in workouts | orderBy: 'date'">
+        <!-- <a href="#/workouts/{{workout._id}}"> -->
+          <h2 ng-class="
+            workout.swim ? 'swim' : (
+            workout.run ? 'run' : (
+            workout.bike ? 'bike' : (
+            workout.xtrain ? 'xtrain' : 'rest')))">
+            {{workout.sport}} {{workout.distance}} {{workout.units}}</h2>
+          <p class="date">{{workout.date | date: 'EEEE, MMM d, yyyy'}}, {{workout.date | date: 'shortTime'}}</p>
+          <p class="comments">{{workout.comments | limitTo:15}}{{workout.comments.length > 15 ? '...' : ''}}</p>
+        <!-- </a> -->
+   
+
+
+  
+        <form name="workoutForm{{workout._id}}" data-ng-submit="update(workout)" data-ng-if="workout.editing">
+          <h2>Edit Workout:</h2>
+
+          <label for="workoutSport{{workout._id}}">Sport:</label>
+          <input type="text" id="workoutSport{{workout._id}}" data-ng-model="workout.sport" required/>
+
+          <label for="workoutDistance{{workout._id}}">Distance:</label>
+          <input type="number" id="workoutDistance{{workout._id}}" data-ng-model="workout.distance"/>
+
+          <label for="workoutUnits{{workout._id}}">Units:</label>
+          <input type="text" id="workoutUnits{{workout._id}}" data-ng-model="workout.units"/>
+
+          <label for="workoutDate{{workout._id}}">Date &amp; Time:</label>
+          <input type="datetime-local" id="workoutDate{{workout._id}}" data-ng-model="workout.date" />
+
+          <label for="workoutComments{{workout._id}}">Notes:</label>
+          <input type="text" id="workoutComments{{workout._id}}" data-ng-model="workout.comments" />
+
+          <button type="submit">Save Workout Edits</button>
+          <button data-ng-click="workout.editing = false; resetWorkout(workout)">Cancel Workout Edits</button>
+        </form>
+
+        <button data-ng-if="!workout.editing" data-ng-click="workout.editing = true; rememberWorkout(workout)">Edit this workout</button>
+        <button data-ng-if="!workout.editing" data-ng-click="remove(workout)">Murder this workout</button>
+        
+      </li>
+    </ul>
+
+  </main>
+
+  <script src="/bundle.js"></script>
+</body>
+</html>

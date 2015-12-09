@@ -1,0 +1,37 @@
+{
+  "name": "workout_calendar",
+  "version": "0.1.0",
+  "description": "a calendar of workouts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Molly Kent <kent.molly@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.5"
+  },
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-mocks": "^1.4.8",
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "mocha": "^2.3.3",
+    "phantomjs": "^1.9.19",
+    "require-dir": "^0.3.0",
+    "superagent-cli": "^2.0.0",
+    "webpack-stream": "^2.2.0"
+  }
+}

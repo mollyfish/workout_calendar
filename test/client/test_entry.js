@@ -1,0 +1,1 @@
+require('./workouts_controller_tests.js');
