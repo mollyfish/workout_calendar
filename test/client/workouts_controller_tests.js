@@ -8,7 +8,7 @@ describe('workouts controller', function() {
   var $scope;
 
   // create a mock version of our app:
-  beforeEach(angular.mock.module('WorkoutApp'));
+  beforeEach(angular.mock.module('TrainingApp'));
   // inject our mocked dependencies to run fake controllers and scopes
   // we don't need a DOM, etc.
 

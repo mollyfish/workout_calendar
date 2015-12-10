@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var webpack = require('webpack-stream');
-var config = require('../config').javascript;
+var config = require('../config').webpackDev;
 
 gulp.task('webpack:dev', function() {
   return gulp.src(config.entryPoint)

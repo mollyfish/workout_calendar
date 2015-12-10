@@ -1,0 +1,7 @@
+<h2 ng-class="{'swim': workout.sport == 'swim', 'run': workout.sport == 'run', 'bike': workout.sport == 'bike', 'xtrain': workout.sport == 'xtrain'}">
+    {{workout.sport | capitalize}} {{workout.distance}} {{workout.units}}</h2>
+<p class="date">{{workout.date | date: 'EEEE, MMM d, yyyy'}}, {{workout.date | date: 'shortTime'}}</p>
+<p class="comments">{{workout.comments | limitTo:15}}{{workout.comments.length > 15 ? '...' : ''}}</p>
+
+
+

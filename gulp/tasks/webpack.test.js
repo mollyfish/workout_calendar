@@ -3,11 +3,11 @@ var webpack = require('webpack-stream');
 var config = require('../config').webpackTest;
 
 gulp.task('webpack:test', function() {
-  return gulp.src('test/client/test_entry.js')
+  return gulp.src(config.src)
   .pipe(webpack({
     output: {
-      filename: 'test_bundle.js'
+      filename: config.packedFile
     }
   }))
-  .pipe(gulp.dest('test/client/'));
+  .pipe(gulp.dest(config.dest));
 });

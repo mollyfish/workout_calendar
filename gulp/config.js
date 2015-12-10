@@ -1,12 +1,17 @@
-var dest = './build';
 var src = './app';
+var dest = './build';
 
 module.exports = {
-  javascript: {
-    src: src + '/app/**/*.js',
+  webpackDev: {
+    src: src + '/js/**/*.js',
     dest: dest + '/js/',
     entryPoint: src + '/js/entry.js',
     packedFile: 'bundle.js'
+  },
+  webpackTest: {
+    src: 'test/client/test_entry.js',
+    dest: 'test/client/',
+    packedFile: 'test.bundle.js'
   },
   sass: {
     src: src + '/styles/**/*.{sass,scss}',
@@ -16,8 +21,12 @@ module.exports = {
     }
   },
   html: {
-    src: src + "/app/*.html",
+    src: src + "/*.html",
     dest: dest,
+  },
+  views: {
+    src: src + '/js/templates/*.html',
+    dest: dest + '/views/'
   },
   server: {
     serverFile: './server.js'

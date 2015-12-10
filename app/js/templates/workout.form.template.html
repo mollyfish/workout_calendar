@@ -1,0 +1,23 @@
+<form name="{{formName}}" data-ng-submit="save({workout: workout})">
+  <h2>{{headingText}}</h2>
+  <fieldset class="radios">
+    <input type="radio" ng-model="workout.sport" name="sport" id="{{workout._id}}swim" value="swim">
+    <label for="{{workout._id}}swim"> Swim</label>
+    <input type="radio" ng-model="workout.sport" name="sport" id="{{workout._id}}bike" value="bike"> 
+    <label for="{{workout._id}}bike"> Bike</label>
+    <input type="radio" ng-model="workout.sport" name="sport" id="{{workout._id}}run" value="run">
+    <label for="{{workout._id}}run"> Run</label>
+    <input type="radio" ng-model="workout.sport" name="sport" id="{{workout._id}}xtrain" value="xtrain">
+    <label for="{{workout._id}}xtrain"> Xtrain</label>
+  </fieldset>
+  <label for="{{workout._id}}distance">Distance/Duration:</label>
+  <input type="number" id="{{workout._id}}distance" data-ng-model="workout.distance"/>
+  <label for="{{workout._id}}units">Units:</label>
+  <input type="text" id="{{workout._id}}units" data-ng-model="workout.units" placeholder="mi / m / hrs" size="10" />
+  <label for="{{workout._id}}date">Date &amp; Time:</label>
+  <input type="datetime-local" id="{{workout._id}}date" data-ng-model="workout.date" />
+  <label class="notes" for="{{workout._id}}comments">Notes:</label>
+  <input class="notes" type="text" id="{{workout._id}}comments" data-ng-model="workout.comments" size="60" />
+  <button type="submit">{{buttonText}}</button>
+  <ng-transclude></ng-transclude>
+</form>

@@ -1,0 +1,35 @@
+<article data-ng-controller="WorkoutsController" data-ng-init="getAll()">
+
+  <div data-workout-form-directive
+    data-button-text="Save New Workout"
+    data-form-name="newWorkoutForm"
+    data-heading-text="Create A New Workout"
+    data-workout="newWorkout"
+    data-save="create(workout)">
+  </div>
+
+  <section data-list-directive data-title="Workouts List:">
+    <ul id="errorsList">
+      <li data-ng-repeat="error in errors">{{error}}</li>
+    </ul>
+
+    <ul id='workoutlist' class="workout-list">
+      <li data-ng-repeat="workout in workouts | orderBy: 'date'" class="workout">
+        <div data-workout-directive data-workout="workout"></div>
+        <div data-workout-form-directive
+          data-ng-if="workout.editing"
+          data-button-text="Save Edited Workout"
+          data-form-name="edit{{workout._id}}"
+          data-heading-text="Edit {{workout.name}}"
+          data-workout="workout"
+          data-save="update(workout)">
+          <button data-ng-click="workout.editing = false; resetWorkout(workout)">Cancel Workout Edits</button>
+        </div>
+        
+        <button data-ng-if="!workout.editing" data-ng-click="workout.editing = true; rememberWorkout(workout)">Edit this workout</button>
+        
+        <button data-ng-if="!workout.editing" data-ng-click="remove(workout)">Murder this workout</button>
+      </li>
+    </ul>
+  </section>
+</article>

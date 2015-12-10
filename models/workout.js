@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var workoutSchema = new mongoose.Schema({
-  swim: Boolean,
-  bike: Boolean,
-  run: Boolean,
-  xtrain: Boolean,
+  // swim: {type: Boolean, default: false},
+  // bike: {type: Boolean, default: false},
+  // run: {type: Boolean, default: false},
+  // xtrain: {type: Boolean, default: false},
   sport: String,
   distance: Number,
   units: String,

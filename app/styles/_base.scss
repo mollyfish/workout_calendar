@@ -2,18 +2,59 @@ html {
   font-family: Arial, sans-serif;
 }
 form {
-  float: right;
+  // float: right;
+  .radios {
+    display: inline;
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+    #swim {
+      margin-left: 0;
+    }
+  }
+  .notes {
+    display: block;
+  }
 }
 input {
-  display: block;
+  // display: block;
   margin-bottom: 0.5em;
+  fieldset & {
+    display: inline;
+  }
+  &[type="number"] {
+     width: 5em;
+  }
 }
 form button {
   margin-top: 1em;
+}
+ul {
+  list-style-type: none;
+  // clear: right;
 }
 li {
   margin-bottom: 0;
 }
 li button {
   display: block;
+}
+.workout-list {
+  display: flex;
+  flex-direction: row;
+}
+.workout {
+  border: 1px solid black;
+}
+.swim {
+  color: blue;
+}
+.run {
+  color: red;
+}
+.bike {
+  color: green;
+}
+.xtrain {
+  color: orange;
 }
